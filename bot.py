@@ -9,6 +9,7 @@ async def main():
 	dp.include_routers(
 		handlers.router,
 	)
+	print("READY")
 	await dp.start_polling(bot)
 
 if __name__ == '__main__':

@@ -2,8 +2,8 @@ import keyboards
 import config_bot
 import rates
 from aiogram import Router, F
-from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, CallbackQuery, LabeledPrice
+from aiogram.filters import CommandStart
+from aiogram.types import Message, CallbackQuery
 from aiogram.types.message import ContentType
 
 router = Router()
@@ -19,5 +19,6 @@ async def rates_wait(callback: CallbackQuery):
 
 @router.message()
 async def echo(message: Message):
+	print(f"{message.from_user.username} : {message.text}")
 	msg = message.text.lower()
 	await message.answer(rates.rates(msg.upper()))
